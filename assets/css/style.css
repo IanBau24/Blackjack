@@ -1,0 +1,50 @@
+html, body{
+    margin: 0px;
+    background-color: #2F4F30;
+    color: white;
+}
+
+.heading{
+    color: white;
+}
+
+.title{
+    text-align: center;
+    background-color: black;
+    color: white;
+    padding: 20px;
+    font-size: 35px;
+    font-family: "Times New Roman", Times, serif;
+    font-weight: bold;
+}
+
+.row {
+    margin-left: 0px;
+    margin-right: 0px;
+    background-color: #2F4F30;
+}
+
+.container {
+  margin-left: 0 !important;
+  margin-right: auto !important;
+  text-align: left;
+  padding-left: 20px; /* adjust to taste */
+}
+
+#player-cards, #computer-cards {
+    display: flex;
+    flex-wrap: nowrap; /* or wrap if you want cards to go to next line when overflowing */
+}
+
+.card {
+    width: 120px;   /* adjust size */
+    margin-left: -60px; /* negative margin to overlap */
+    transition: transform 0.2s ease; /* smooth hover effect */
+}
+
+#computer-cards, #player-cards{
+    height: 180px;
+    padding-left: 70px;
+}
+
+
