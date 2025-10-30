@@ -2,49 +2,84 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/jpeg" href="/assets/ace_logo-DWIvITZn.jpg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Blackjack - Vite</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <script type="module" crossorigin src="/assets/index-py4IiyZG.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-CUWcSojI.css">
+    <title>Blackjack</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <script type="module" crossorigin src="/assets/index-DDCf8XgG.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-DGjHi-vn.css">
   </head>
+
   <body>
-        <header class="titulo">
-        Blackjack
+    <header class="titulo">
+      Blackjack
     </header>
     
-    <div class="row mt-2">
-        <div id="divBotones" class="col text-center">
-
-            <button id="btnNuevo" class="btn btn-danger">Nuevo Juego</button>
-            <button id="btnPedir" class="btn btn-primary">Pedir carta</button>
-            <button id="btnDetener" class="btn btn-primary">Detener</button> 
-
+    <div class="game-layout container-fluid mt-3">
+      <div class="row justify-content-center align-items-start">
+        
+        <!-- LEFT COLUMN: Tokens -->
+        <div class="col-md-2 text-center sidebar-box">
+          <h2>Tokens</h2>
+          <small id="tokens">100</small>
         </div>
+
+        <!-- CENTER COLUMN -->
+        <div class="col-md-8 main-play-area text-center">
+          <div id="divBotones" class="mb-4">
+            <button id="btnNuevo" class="btn btn-danger">New Game</button>
+            <button id="btnPedir" class="btn btn-primary">Hit Me</button>
+            <button id="btnDetener" class="btn btn-primary">Hold</button>
+          </div>
+
+          <div class="player-area">
+            <h1>Player - <small id="game-score">0</small></h1>
+            <div id="jugador-cartas"></div>
+          </div>
+
+          <div class="computer-area mt-4">
+            <h1>Computer - <small id="game-score">0</small></h1>
+            <div id="computadora-cartas"></div>
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN -->
+        <div class="col-md-2 text-center score-sidebar">
+          <h1>Player Score:</h1>
+          <h2><small id="total-player-score">0</small></h2>
+          <h1>Computer Score:</h1>
+          <h2><small id="total-comp-score">0</small></h2>
+          <button id="btnReset" class="btn btn-primary">Reset Score</button>
+        </div>
+      </div>
     </div>
 
-    <div class="row container">
-        <div class="col">
-
-            <h1>Jugador 1 - <small>0</small></h1>
-            <div id="jugador-cartas">
-                <!-- <img class="carta" src="assets/cartas/2C.png"> -->
-            </div>
-
-        </div>
+    <!-- GAME OVER MENU (win/lose round) -->
+    <div id="game-over-menu" class="hidden">
+      <div class="gameOverContent">
+        <h2 id="menu-message">You win!</h2>
+        <button id="play-again">Play Again</button>
+        <button id="quit-game">Quit</button>
+      </div>
     </div>
 
-    <div class="row container mt-2">
-        <div class="col">
+    <!-- OUT OF TOKENS MENU -->
+     <!-- TODO fix out of tokens menu, visibility or lack of tokens when page loads-->
+    <!-- <div id="out-of-tokens-menu" class="hidden">
+      <div class="gameOverContent">
+        <h2>You're out of tokens!</h2>
+        <p>Would you like to start over?</p>
+        <button id="reset-tokens">Restart with 100 Tokens</button>
+        <button id="quit-game-2">Quit</button>
+      </div> -->
 
-            <h1>Computadora - <small>0</small></h1>
-            <div id="computadora-cartas">
-                <!-- <img class="carta" src="assets/cartas/3C.png"> -->
-            </div>
-
-        </div>
+    <!-- JS at the very bottom so DOM is ready -->
+    
     </div>
-    <div id="app"></div>
   </body>
 </html>
